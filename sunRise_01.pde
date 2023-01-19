@@ -2,9 +2,10 @@
 float sunY=800;
 
 void sunRise() {
+  background(200,50,map(sunY,800,300,0,100));
   noStroke();
   push();
-  translate(width/2,sunY , 0);
+  translate(width/2, sunY, 0);
   fill(#fdb86b);
   sphere(150);//太陽
   rotate(frameCount*0.01);
@@ -16,20 +17,27 @@ void sunRise() {
     pop();
   }
   pop();
-  
+
   println("sunY = "+sunY);
-  if(sunY>300){
+  if (sunY>300) {
     sunY-=1;
   }
-  
-  /*山*/  
+
+  /*山*/
   push();
-  translate(0,0,250);
-  fill(#74905D);
-  ellipse(800,700,1000,500);
-  fill(#ABC88B);
-  ellipse(200,700,800,600);
+  translate(0, 0, 250);
+  fill(90,50,map(sunY,800,300,0,90));
+  ellipse(800, 700, 1000, 500);
+  fill(110,50,map(sunY,800,300,0,90));
+  ellipse(200, 700, 800, 600);
   pop();
+  
+  if(sunY<=300){
+  push();
+  translate(0,0,300);
+  image(logo,0,0,width,height);
+  pop();
+  }
 }
 
 void pillar(float length, float radius1, float radius2) {
