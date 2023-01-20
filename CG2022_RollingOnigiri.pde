@@ -55,4 +55,7 @@ void draw(){
   onigiriNezumiCome();//1000
   }
   //println(frameCount);
+  if(key==ENTER){
+    saveFrame("omusubi.png");
+  }
 }
