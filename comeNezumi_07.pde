@@ -7,6 +7,20 @@ float onigiriTime_in=0;
 void onigiriNezumiCome() {
   comeOnigiri();
   comeNezumi();
+  showWood(100,height/2-40,150);
+  showWood(200,height/2-50,80);
+  showWood(300,height/2-60,70);
+  showWood(400,height/2-70,60);
+  showWood(500,height/2-80,50);
+  showWood(600,height/2-90,40);
+  cloud(700,150);
+  cloud(600,200);
+  cloud(500,120);
+  cloud(400,200);
+  cloud(100,100);
+  cloud(800,200);
+  showKoduti();  
+  //showOjisan();
 }
 
 void comeOnigiri() {
@@ -33,7 +47,7 @@ void comeOnigiri() {
 
 void comeNezumi() {
   push();
-  translate(width/2, height/2);
+  translate(width/2, height/2+20);
   camera(-100, -100, 200, 0, 0, 0,
     0.0, 1.0, 0.0);
   shape(objMouse);
@@ -45,4 +59,23 @@ void comeNezumi() {
     mouseY_01+=1;
   }
   pop();
+}
+
+void showWood(float x,float y,float z) {
+  push();
+  translate(x, y, z);
+  shape(objWood);
+  pop();
+}
+
+void showKoduti(){
+push();
+translate(width/2+40,height/2+160,360);
+  if(onigiriTime_in>373){
+    if(mouseY_01<130){
+      objKoduti.translate(0,-1,0);
+    }
+  }
+shape(objKoduti);
+pop();
 }
